@@ -41,6 +41,24 @@ app.get("/pacientes/:pacIdentificacion", (req,res)=>{
     })
 });
 
+app.get("/pacientes1/:pacIdentificacion", (req, res)=>{    
+    const { pacIdentificacion } = req.params;    
+        if (isNaN(pacIdentificacion)) {
+            return res.status(400).json({ error: 'ID inválido' });
+        }    
+        db.query('SELECT * FROM pacientes WHERE pacIdentificacion = ?', [pacIdentificacion], (err, results) => {
+            if (err) {
+                console.error('Error en la consulta:', err);
+                return res.status(500).json({ error: 'Error en el servidor' });
+            }    
+            if (results.length === 0) {
+                return res.status(404).json({ error: 'Usuario no encontrado' });
+            }    
+            res.json(results[0]); 
+        });
+    
+});
+
 app.put("/pacientes/:pacIdentificacion", (req,res) =>{
     const pacienteId = req.params.pacIdentificacion;
     const result = "UPDATE pacientes SET pacIdentificacion = ?, pacApellidos = ?, pacNombres = ?, pacFechaNacimiento = ?, pacTelefono = ?, PacSexo = ? WHERE pacIdentificacion = ?";
@@ -72,7 +90,7 @@ app.post("/pacientes", async(req, res)=>{
 
     db.query(result, [values], (error) =>{
         if(error) return res.json(error);
-        return res.json("Patient has been created successfully");
+        return res.json("Success");
     });
 });
 

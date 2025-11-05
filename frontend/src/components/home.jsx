@@ -5,97 +5,96 @@ const Home = () => {
     return (
       <>
       <div>
-         <h1 className='titulo'>Centro Médico La Maria</h1>     
+         <h1 className='titulo'>Lafori Medical Center</h1>     
       </div>
       <Dropdown className="d-inline mx-2">
         <Dropdown.Toggle id="dropdown-autoclose-true">
-          PACIENTES
+          PATIENTS
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="/addPacientes">Adicionar Pacientes</Dropdown.Item>
-          <Dropdown.Item href="#">Consultar Pacientes</Dropdown.Item>
-          <Dropdown.Item href="#">Modificar Pacientes</Dropdown.Item>
-          <Dropdown.Item href="#">Eliminar Pacientes</Dropdown.Item>
+          <Dropdown.Item href="/addPacientes">Register</Dropdown.Item>
+          <Dropdown.Item href="/consultaPacientes">Consult</Dropdown.Item>
+          <Dropdown.Item href="/modificarPacientes">Update</Dropdown.Item>
+          <Dropdown.Item href="/eliminarPacientes">Delete</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 
       <Dropdown className="d-inline mx-2" autoClose="inside">
         <Dropdown.Toggle id="dropdown-autoclose-inside">
-          MEDICOS
+          DOCTORS
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#">Adicionar Médicos</Dropdown.Item>
-          <Dropdown.Item href="#">Consultar Médicos</Dropdown.Item>
-          <Dropdown.Item href="#">Modificar Médicos</Dropdown.Item>
-          <Dropdown.Item href="#">Eliminar Médicos</Dropdown.Item>
+          <Dropdown.Item href="/addMedicos">Register</Dropdown.Item>
+          <Dropdown.Item href="/consultarMedicos">Consult</Dropdown.Item>
+          <Dropdown.Item href="/modificarMedicos">update</Dropdown.Item>
+          <Dropdown.Item href="/eliminarMedicos">Delete</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 
       <Dropdown className="d-inline mx-2" autoClose="outside">
         <Dropdown.Toggle id="dropdown-autoclose-outside">
-          CONSULTORIOS
+          OFFICES
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#">Adicionar Consultorios</Dropdown.Item>
-          <Dropdown.Item href="#">Consultar Consultorios</Dropdown.Item>
-          <Dropdown.Item href="#">Modificar Consultorios</Dropdown.Item>
-          <Dropdown.Item href="#">Eliminar Consultorios</Dropdown.Item>
+          <Dropdown.Item href="#">Register</Dropdown.Item>
+          <Dropdown.Item href="#">Consult</Dropdown.Item>
+          <Dropdown.Item href="#">Update</Dropdown.Item>
+          <Dropdown.Item href="#">Delete</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 
       <Dropdown className="d-inline mx-2" autoClose={false}>
         <Dropdown.Toggle id="dropdown-autoclose-false">
-          CITAS
+          QUOTES
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#">Adicionar Citas</Dropdown.Item>
-          <Dropdown.Item href="#">Consultar Citas</Dropdown.Item>
-          <Dropdown.Item href="#">Modificar Citas</Dropdown.Item>
-          <Dropdown.Item href="#">Eliminar Citas</Dropdown.Item>
+          <Dropdown.Item href="#">Register</Dropdown.Item>
+          <Dropdown.Item href="#">Consult</Dropdown.Item>
+          <Dropdown.Item href="#">Update</Dropdown.Item>
+          <Dropdown.Item href="#">Delete</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 
       <Dropdown className="d-inline mx-2" autoClose={false}>
         <Dropdown.Toggle id="dropdown-autoclose-false">
-          TRATAMIENTOS
+          TREATMENTS
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#">Adicionar Tratamientos</Dropdown.Item>
-          <Dropdown.Item href="#">Consultar Tratamientos</Dropdown.Item>
-          <Dropdown.Item href="#">Modificar Tratamientos</Dropdown.Item>
-          <Dropdown.Item href="#">Eliminar Tratamientos</Dropdown.Item>
+          <Dropdown.Item href="#">Register</Dropdown.Item>
+          <Dropdown.Item href="#">Consult</Dropdown.Item>
+          <Dropdown.Item href="#">Update</Dropdown.Item>
+          <Dropdown.Item href="#">Delete</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown> 
 
      <Dropdown className="d-inline mx-2" autoClose={false}>
         <Dropdown.Toggle id="dropdown-autoclose-false">
-          REPORTES
+          REPORTS
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#">Reportes de Pacientes</Dropdown.Item>
-          <Dropdown.Item href="#">Reporte de Médicos</Dropdown.Item>
-          <Dropdown.Item href="#">Reporte de Consultorios</Dropdown.Item>
-          <Dropdown.Item href="#">Reporte de Citas</Dropdown.Item>
-          <Dropdown.Item href="#">Reporte de Tratamientos</Dropdown.Item>          
+          <Dropdown.Item href="#">Patients</Dropdown.Item>
+          <Dropdown.Item href="#">Doctors</Dropdown.Item>
+          <Dropdown.Item href="#">Officess</Dropdown.Item>
+          <Dropdown.Item href="#">Quotes</Dropdown.Item>
+          <Dropdown.Item href="#">Treatment</Dropdown.Item>          
         </Dropdown.Menu>
       </Dropdown> 
 
      <Dropdown className="d-inline mx-2" autoClose={false}>
         <Dropdown.Toggle id="dropdown-autoclose-false">
-          SALIR
+          EXIT
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="/login">Salir</Dropdown.Item>          
+          <Dropdown.Item href="/login">Exit</Dropdown.Item>          
         </Dropdown.Menu>
       </Dropdown>  
-
 
     </>
 

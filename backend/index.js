@@ -43,13 +43,11 @@ app.get("/pacientes/:pacIdentificacion", (req,res)=>{
 
 app.get("/pacientes1/:pacIdentificacion", (req, res)=>{    
     const { pacIdentificacion } = req.params;    
-        if (isNaN(pacIdentificacion)) {
-            return res.status(400).json({ error: 'ID inválido' });
-        }    
+       
         db.query('SELECT * FROM pacientes WHERE pacIdentificacion = ?', [pacIdentificacion], (err, results) => {
             if (err) {
-                console.error('Error en la consulta:', err);
-                return res.status(500).json({ error: 'Error en el servidor' });
+                console.error('Error en la Consulta:', err);
+                return res.status(500).json({ error: 'Error en el Servidor' });
             }    
             if (results.length === 0) {
                 return res.status(404).json({ error: 'Usuario no encontrado' });
@@ -59,7 +57,23 @@ app.get("/pacientes1/:pacIdentificacion", (req, res)=>{
     
 });
 
-app.put("/pacientes/:pacIdentificacion", (req,res) =>{
+app.get("/medicos/:medIdentificacion", (req, res)=>{    
+    const { medIdentificacion } = req.params;    
+        
+        db.query('SELECT * FROM medicos WHERE medIdentificacion = ?', [medIdentificacion], (err, results) => {
+            if (err) {
+                console.error('Error en la Consulta:', err);
+                return res.status(500).json({ error: 'Error en el Servidor' });
+            }    
+            if (results.length === 0) {
+                return res.status(404).json({ error: 'Unregistered Doctor' });
+            }    
+            res.json(results[0]); 
+        });
+    
+});
+
+app.put("/pacientes/:pacIdentificacion", (req, res) =>{
     const pacienteId = req.params.pacIdentificacion;
     const result = "UPDATE pacientes SET pacIdentificacion = ?, pacApellidos = ?, pacNombres = ?, pacFechaNacimiento = ?, pacTelefono = ?, PacSexo = ? WHERE pacIdentificacion = ?";
     const values = [
@@ -68,12 +82,29 @@ app.put("/pacientes/:pacIdentificacion", (req,res) =>{
         req.body.pacNombres,
         req.body.pacFechaNacimiento,
         req.body.pacTelefono,
-        req.body.PacSexo
+        req.body.pacSexo
     ];
 
     db.query(result, [...values, pacienteId], (err, data)=>{
         if(err) return res.json(err);
-        return res.json("Patient has been update successfully");
+        return res.json("Success");
+    });
+});
+
+app.put("/medicos/:Identificacion", (req, res) =>{
+    const pacienteId = req.params.Identificacion;
+    const result = "UPDATE medicos SET medIdentificacion = ?, medApellidos = ?, medNombres = ?, medTelefono = ?, medEspecialidad = ? WHERE medIdentificacion = ?";
+    const values = [
+        req.body.medIdentificacion, 
+        req.body.medApellidos,
+        req.body.medNombres,        
+        req.body.medTelefono,
+        req.body.medEspecialidad
+    ];
+
+    db.query(result, [...values, pacienteId], (err, data)=>{
+        if(err) return res.json(err);
+        return res.json("Success");
     });
 });
 
@@ -94,12 +125,37 @@ app.post("/pacientes", async(req, res)=>{
     });
 });
 
+app.post("/medicos", (req,res) =>{
+    const result = "INSERT INTO medicos(medIdentificacion, medNombres, medApellidos, medTelefono, medEspecialidad) VALUES(?)";
+    const values = [
+        req.body.medIdentificacion,
+        req.body.medNombres,
+        req.body.medApellidos,
+        req.body.medTelefono,
+        req.body.medEspecialidad       
+    ];
+
+    db.query(result, [values], (error) =>{
+        if(error) return res.json(error);
+        return res.json("Success");
+    });
+});
+
 app.delete("/pacientes/:pacIdentificacion", (req,res) =>{
     const pacienteId = req.params.pacIdentificacion;
     const result = "DELETE FROM pacientes WHERE pacIdentificacion = ?";
     db.query(result, [pacienteId], (err, data)=>{
         if(err) return res.json(err);
-        return res.json("Patient has been deleted successfully");
+        return res.json("Success");
+    });
+});
+
+app.delete("/medicos/:Identificacion", (req,res) =>{
+    const medicoId = req.params.Identificacion;
+    const result = "DELETE FROM medicos WHERE medIdentificacion = ?";
+    db.query(result, [medicoId], (err, data)=>{
+        if(err) return res.json(err);
+        return res.json("Success");
     });
 });
 

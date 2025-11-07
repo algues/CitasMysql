@@ -39,10 +39,10 @@ const Home = () => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#">Register</Dropdown.Item>
-          <Dropdown.Item href="#">Consult</Dropdown.Item>
-          <Dropdown.Item href="#">Update</Dropdown.Item>
-          <Dropdown.Item href="#">Delete</Dropdown.Item>
+          <Dropdown.Item href="/addConsultorios">Register</Dropdown.Item>
+          <Dropdown.Item href="/consultarConsultorios">Consult</Dropdown.Item>
+          <Dropdown.Item href="/modificarConsultorios">Update</Dropdown.Item>
+          <Dropdown.Item href="/eliminarConsultorios">Delete</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 

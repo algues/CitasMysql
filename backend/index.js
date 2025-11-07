@@ -50,7 +50,7 @@ app.get("/pacientes1/:pacIdentificacion", (req, res)=>{
                 return res.status(500).json({ error: 'Error en el Servidor' });
             }    
             if (results.length === 0) {
-                return res.status(404).json({ error: 'Usuario no encontrado' });
+                return res.status(404).json({ error: 'Unregistered patient' });
             }    
             res.json(results[0]); 
         });
@@ -73,6 +73,23 @@ app.get("/medicos/:medIdentificacion", (req, res)=>{
     
 });
 
+app.get("/consultorios/:numero", (req, res)=>{    
+    const { numero } = req.params;    
+        
+        db.query('SELECT * FROM consultorios WHERE conNumero = ?', [numero], (err, results) => {
+            if (err) {
+                console.error('Error en la Consulta:', err);
+                return res.status(500).json({ error: 'Error en el Servidor' });
+            }    
+            if (results.length === 0) {
+                return res.status(404).json({ error: 'Unregistered Office' });
+            }    
+            res.json(results[0]); 
+        });
+    
+});
+
+
 app.put("/pacientes/:pacIdentificacion", (req, res) =>{
     const pacienteId = req.params.pacIdentificacion;
     const result = "UPDATE pacientes SET pacIdentificacion = ?, pacApellidos = ?, pacNombres = ?, pacFechaNacimiento = ?, pacTelefono = ?, PacSexo = ? WHERE pacIdentificacion = ?";
@@ -92,7 +109,7 @@ app.put("/pacientes/:pacIdentificacion", (req, res) =>{
 });
 
 app.put("/medicos/:Identificacion", (req, res) =>{
-    const pacienteId = req.params.Identificacion;
+    const medicoId = req.params.Identificacion;
     const result = "UPDATE medicos SET medIdentificacion = ?, medApellidos = ?, medNombres = ?, medTelefono = ?, medEspecialidad = ? WHERE medIdentificacion = ?";
     const values = [
         req.body.medIdentificacion, 
@@ -102,7 +119,20 @@ app.put("/medicos/:Identificacion", (req, res) =>{
         req.body.medEspecialidad
     ];
 
-    db.query(result, [...values, pacienteId], (err, data)=>{
+    db.query(result, [...values, medicoId], (err, data)=>{
+        if(err) return res.json(err);
+        return res.json("Success");
+    });
+});
+
+app.put("/consultorios/:numero", (req, res) =>{
+    const consultorioId = req.params.numero;
+    const result = "UPDATE consultorios SET conNombre = ? WHERE conNumero = ?";
+    const values = [
+        req.body.conNombre        
+    ];
+
+    db.query(result, [...values, consultorioId], (err, data)=>{
         if(err) return res.json(err);
         return res.json("Success");
     });
@@ -159,6 +189,16 @@ app.delete("/medicos/:Identificacion", (req,res) =>{
     });
 });
 
+app.delete("/consultorios/:numero", (req,res) =>{
+    const consultorioId = req.params.numero;
+    const result = "DELETE FROM consultorios WHERE conNumero = ?";
+    db.query(result, [consultorioId], (err, data)=>{
+        if(err) return res.json(err);
+        return res.json("Success");
+    });
+});
+
+
 
 app.post("/login", (req,res)=>{
     const result = "SELECT * FROM usuarios WHERE user = ? AND password = ?";    
@@ -170,6 +210,18 @@ app.post("/login", (req,res)=>{
            return res.json("Failed")
       }
     })
+});
+
+app.post("/consultorios", (req,res) =>{
+    const result = "INSERT INTO consultorios(ConNombre) VALUES(?)";
+    const values = [
+        req.body.ConNombre               
+    ];
+
+    db.query(result, [values], (error) =>{
+        if(error) return res.json(error);
+        return res.json("Success");
+    });
 });
 
 app.listen(8800, () =>{

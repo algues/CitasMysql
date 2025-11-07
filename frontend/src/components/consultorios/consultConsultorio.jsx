@@ -11,7 +11,7 @@ const ConsultarConsultorios = () => {
     const buscarConsultorio = async () => {
         try {
              if (!numero) {
-                setError('Plis enter number');
+                setError('Please enter number');
                 return;
             }
             const res = await axios.get(`http://localhost:8800/consultorios/${numero}`);

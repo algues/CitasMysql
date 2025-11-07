@@ -28,7 +28,7 @@ const ConsultarMedicos = () => {
 
     return (
         <div>
-            <h5 className='titulo'>Buscar Medico por Identificación</h5>
+            <h5 className='titulo'>Consult Doctors</h5>
             <input 
                 style={{ width: '20%' }}                           
                 type="number"
@@ -43,12 +43,12 @@ const ConsultarMedicos = () => {
             {medico && (
                 <div>
                     <br />
-                    <h5 className='titulo'>Datos del Medico</h5>
-                    <p><b>Identificación:</b> {medico.medIdentificacion}</p>
-                    <p><b>Apellidos:</b> {medico.medApellidos}</p>
-                    <p><b>Nombres:</b> {medico.medNombres}</p>
-                    <p><b>Telefono:</b> {medico.medTelefono}</p>
-                    <p><b>Especialidad:</b> {medico.medEspecialidad}</p>                                      
+                    <h5 className='titulo'>Doctor's information</h5>
+                    <p><b>Id:</b> {medico.medIdentificacion}</p>
+                    <p><b>Surname:</b> {medico.medApellidos}</p>
+                    <p><b>Names:</b> {medico.medNombres}</p>
+                    <p><b>Phone:</b> {medico.medTelefono}</p>
+                    <p><b>Specialty:</b> {medico.medEspecialidad}</p>                                      
                 </div>                
             )}
             <div>

@@ -54,7 +54,7 @@ const ModificarMedicos = () => {
 
     return (
         <div>
-            <h5 className='titulo'>Actualización de Pacientes</h5>
+            <h5 className='titulo'>Update Doctors</h5>
             <input 
                 style={{ width: '20%' }}                           
                 type="number"
@@ -71,7 +71,7 @@ const ModificarMedicos = () => {
                     <br />
                     <br />
                     <form className='form'>
-                    <h5 className='titulo'>Datos del Paciente</h5>
+                    <h5 className='titulo'>Doctor's information</h5>
                     <label>Identificación:</label>
                     <input type='numeric' name='medIdentificacion' onChange={handleChange} value={medico.medIdentificacion}></input>
                     <label>Apellidos:</label>

@@ -17,11 +17,8 @@ const ModificarPacientes = () => {
 
     const buscarPaciente = async () => {
         try {
-            setError('');
-            setPaciente(null);
-
-            if (!pacIdentificacion || isNaN(pacIdentificacion)) {
-                setError('Por favor ingresa un Documento válido');
+             if (!pacIdentificacion) {
+                setError('Enter docuement');
                 return;
             }
 
@@ -58,7 +55,7 @@ const ModificarPacientes = () => {
 
     return (
         <div>
-            <h5 className='titulo'>Actualización de Pacientes</h5>
+            <h5 className='titulo'>Update Patients</h5>
             <input 
                 style={{ width: '20%' }}                           
                 type="number"
@@ -75,7 +72,7 @@ const ModificarPacientes = () => {
                     <br />
                     <br />
                     <form className='form'>
-                    <h5 className='titulo'>Datos del Paciente</h5>
+                    <h5 className='titulo'>Patient data</h5>
                     <label>Identificación:</label>
                     <input type='numeric' name='pacIdentificacion' onChange={handleChange} value={paciente.pacIdentificacion}></input>
                     <label>Apellidos:</label>

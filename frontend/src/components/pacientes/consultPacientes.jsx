@@ -10,11 +10,8 @@ const ConsultarPacientes = () => {
 
     const buscarPaciente = async () => {
         try {
-            setError('');
-            setPaciente(null);
-
-            if (!pacIdentificacion || isNaN(pacIdentificacion)) {
-                setError('Por favor ingresa un Documento válido');
+            if (!pacIdentificacion) {
+                setError('Enter document');
                 return;
             }
 
@@ -37,7 +34,7 @@ const ConsultarPacientes = () => {
                 type="number"
                 value={pacIdentificacion}
                 onChange={(e) => setPacIdentificacion(e.target.value)}
-                placeholder="Ingresa Identificación"
+                placeholder="Enter identification"
             />
             <button onClick={buscarPaciente}>Buscar</button>
 
@@ -46,13 +43,13 @@ const ConsultarPacientes = () => {
             {paciente && (
                 <div>
                     <br></br>
-                    <h5 className='titulo'>Datos del Paciente</h5>
-                    <p><b>Identificación:</b> {paciente.pacIdentificacion}</p>
-                    <p><b>Apellidos:</b> {paciente.pacApellidos}</p>
-                    <p><b>Nombres:</b> {paciente.pacNombres}</p>
-                    <p><b>Fecha de Nacimiento:</b> {paciente.pacFechaNacimiento}</p>
-                    <p><b>Telefono:</b> {paciente.pacTelefono}</p>
-                    <p><b>Sexo:</b> {paciente.pacSexo}</p>                    
+                    <h5 className='titulo'>Patient data</h5>
+                    <p><b>Id:</b> {paciente.pacIdentificacion}</p>
+                    <p><b>Surname:</b> {paciente.pacApellidos}</p>
+                    <p><b>Names:</b> {paciente.pacNombres}</p>
+                    <p><b>Birthdate:</b> {paciente.pacFechaNacimiento}</p>
+                    <p><b>Phone:</b> {paciente.pacTelefono}</p>
+                    <p><b>Sex:</b> {paciente.pacSexo}</p>                    
                 </div>                
             )}
             <button className='btn btn-info'><Link to="/">Home</Link></button> 

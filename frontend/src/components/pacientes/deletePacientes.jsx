@@ -17,11 +17,8 @@ const EliminarPacientes = () => {
 
     const buscarPaciente = async () => {
         try {
-            setError('');
-            setPaciente(null);
-
-            if (!pacIdentificacion || isNaN(pacIdentificacion)) {
-                setError('Por favor ingresa un Documento válido');
+            if (!pacIdentificacion) {
+                setError('Enter document');
                 return;
             }
 
@@ -42,7 +39,7 @@ const EliminarPacientes = () => {
            await axios.delete("http://localhost:8800/pacientes/"+ pacIdentificacion)
            .then(res =>{
             if(res.data === "Success"){
-                window.alert("Paciente Eliminado")
+                window.alert("Eliminated patient")
             }else{
                 window.alert("Error durante el procedimiento")
             }              
@@ -54,13 +51,13 @@ const EliminarPacientes = () => {
 
     return (
         <div>
-            <h5 className='titulo'>Actualización de Pacientes</h5>
+            <h5 className='titulo'>Remove patients</h5>
             <input 
                 style={{ width: '20%' }}                           
                 type="number"
                 value={pacIdentificacion}
                 onChange={(e) => setPacIdentificacion(e.target.value)}
-                placeholder="Ingresa Identificación"
+                placeholder="Enter identification"
             />
             <button onClick={buscarPaciente}>Buscar</button>
 
@@ -71,7 +68,7 @@ const EliminarPacientes = () => {
                     <br />
                     <br />
                     <form className='form'>
-                    <h5 className='titulo'>Datos del Paciente</h5>
+                    <h5 className='titulo'>Patient data</h5>
                     <label>Identificación:</label>
                     <input type='numeric' name='pacIdentificacion' value={paciente.pacIdentificacion}></input>
                     <label>Apellidos:</label>

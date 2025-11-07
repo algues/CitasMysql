@@ -52,7 +52,9 @@ const ConsultarPacientes = () => {
                     <p><b>Sex:</b> {paciente.pacSexo}</p>                    
                 </div>                
             )}
-            <button className='btn btn-info'><Link to="/">Home</Link></button> 
+            <div>
+               <button className='btn btn-info'><Link to="/">Home</Link></button> 
+            </div>
         </div>
     );
 }

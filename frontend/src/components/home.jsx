@@ -52,10 +52,10 @@ const Home = () => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#">Register</Dropdown.Item>
-          <Dropdown.Item href="#">Consult</Dropdown.Item>
-          <Dropdown.Item href="#">Update</Dropdown.Item>
-          <Dropdown.Item href="#">Delete</Dropdown.Item>
+          <Dropdown.Item href="/addCitas">Register</Dropdown.Item>
+          <Dropdown.Item href="/consultarCitas">Consult</Dropdown.Item>
+          <Dropdown.Item href="/modificarCitas">Update</Dropdown.Item>
+          <Dropdown.Item href="/eliminarCitas">Delete</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 

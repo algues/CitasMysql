@@ -90,6 +90,22 @@ app.get("/consultorios/:numero", (req, res)=>{
 });
 
 
+app.get("/citas/:numero", (req, res)=>{    
+    const { numero } = req.params;    
+        
+        db.query('SELECT * FROM citas10 WHERE citaNumero = ?', [numero], (err, results) => {
+            if (err) {
+                console.error('Error en la Consulta:', err);
+                return res.status(500).json({ error: 'Error en el Servidor' });
+            }    
+            if (results.length === 0) {
+                return res.status(404).json({ error: 'Cita no registrada' });
+            }    
+            res.json(results[0]); 
+        });
+    
+});
+
 app.put("/pacientes/:pacIdentificacion", (req, res) =>{
     const pacienteId = req.params.pacIdentificacion;
     const result = "UPDATE pacientes SET pacIdentificacion = ?, pacApellidos = ?, pacNombres = ?, pacFechaNacimiento = ?, pacTelefono = ?, PacSexo = ? WHERE pacIdentificacion = ?";
@@ -133,6 +149,25 @@ app.put("/consultorios/:numero", (req, res) =>{
     ];
 
     db.query(result, [...values, consultorioId], (err, data)=>{
+        if(err) return res.json(err);
+        return res.json("Success");
+    });
+});
+
+app.put("/citas/:numero", (req,res) =>{
+    const citaId = req.params.numero;
+    const result = "UPDATE citas10 SET citaFecha = ?, citaHora = ?, citaPaciente = ?, citaMedico = ?, citaConsultorio = ?, citaEstado = ?, citaObservaciones = ? WHERE citaNumero = ?";
+    const values = [
+        req.body.citaFecha,
+        req.body.citaHora,
+        req.body.citaPaciente,
+        req.body.citaMedico,
+        req.body.citaConsultorio,
+        req.body.citaEstado,
+        req.body.citaObservaciones               
+    ];
+
+    db.query(result, [...values, citaId], (err,data)=>{
         if(err) return res.json(err);
         return res.json("Success");
     });
@@ -198,6 +233,15 @@ app.delete("/consultorios/:numero", (req,res) =>{
     });
 });
 
+app.delete("/citas/:numero", (req,res) =>{
+    const citaId = req.params.numero;
+    const result = "DELETE FROM citas10 WHERE citaNumero = ?";
+
+    db.query(result, [citaId], (err, data)=>{
+        if(err) return res.json(err);
+        return res.json("Success");
+    });
+});
 
 
 app.post("/login", (req,res)=>{
@@ -216,6 +260,24 @@ app.post("/consultorios", (req,res) =>{
     const result = "INSERT INTO consultorios(ConNombre) VALUES(?)";
     const values = [
         req.body.ConNombre               
+    ];
+
+    db.query(result, [values], (error) =>{
+        if(error) return res.json(error);
+        return res.json("Success");
+    });
+});
+
+app.post("/citas", (req,res) =>{
+    const result = "INSERT INTO citas10(citaFecha, citaHora, citaPaciente, citaMedico, citaConsultorio, citaEstado, citaObservaciones) VALUES(?)";
+    const values = [
+        req.body.citaFecha,
+        req.body.citaHora,
+        req.body.citaPaciente,
+        req.body.citaMedico,
+        req.body.citaConsultorio,
+        req.body.citaEstado,
+        req.body.citaObservaciones              
     ];
 
     db.query(result, [values], (error) =>{

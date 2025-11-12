@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const AddPacientes = () => {
 
@@ -14,8 +14,7 @@ const AddPacientes = () => {
         pacSexo: ""
     }); 
     
-    const navigate = useNavigate();
-
+   
     const handleChange = (e) =>{
         setPaciente(prev=>({...prev, [e.target.name]: e.target.value }));
     };
@@ -27,7 +26,7 @@ const AddPacientes = () => {
            .then(res =>{
              if(res.data === "Success"){
                 window.alert("Registered Patient")
-                navigate("/")
+                
              }else{
                 window.alert("Failed Registration")
              }

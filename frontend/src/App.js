@@ -13,6 +13,10 @@ import AddConsultorios from './components/consultorios/addConsultorios';
 import ConsultarConsultorios from './components/consultorios/consultConsultorio';
 import ModificarConsultorios from './components/consultorios/updateConsultorio';
 import EliminarConsultorios from './components/consultorios/deleteConsultorios';
+import AddCitas from './components/citas/addCitas';
+import ConsultarCitas from './components/citas/consultCitas';
+import ModificarCitas from './components/citas/updateCitas';
+import EliminarCitas from './components/citas/deleteCitas';
 
 
 function App() {
@@ -33,7 +37,11 @@ function App() {
           <Route  path='/addConsultorios' element={<AddConsultorios />}></Route> 
           <Route  path='/consultarConsultorios' element={<ConsultarConsultorios />}></Route> 
           <Route  path='/modificarConsultorios' element={<ModificarConsultorios />}></Route> 
-          <Route  path='/eliminarConsultorios' element={<EliminarConsultorios />}></Route>    
+          <Route  path='/eliminarConsultorios' element={<EliminarConsultorios />}></Route>  
+          <Route  path='/addCitas' element={<AddCitas />}></Route> 
+          <Route  path='/consultarCitas' element={<ConsultarCitas />}></Route>   
+          <Route  path='/modificarCitas' element={<ModificarCitas />}></Route>
+          <Route  path='/eliminarCitas' element={<EliminarCitas />}></Route>   
         </Routes>
       </Router>     
       </header>

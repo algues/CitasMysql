@@ -48,8 +48,9 @@ const ConsultarCitas = () => {
                     <p><b>Fecha:</b> {cita.citaFecha}</p> 
                     <p><b>Hora:</b> {cita.citaHora}</p> 
                     <p><b>Paciente:</b> {cita.citaPaciente}</p> 
-                    <p><b>Médico:</b> {cita.citaMedico}</p> 
-                    <p><b>Consultorio:</b> {cita.citaConsultorio}</p> 
+                    <p><b>Nombres:</b> {cita.pacNombres}</p> 
+                    <p><b>Médico:</b> {cita.medNombres}</p> 
+                    <p><b>Consultorio:</b> {cita.conNombre}</p> 
                     <p><b>Estado:</b> {cita.citaEstado}</p> 
                     <p><b>Observaciones:</b> {cita.citaObservaciones}</p>                          
                 </div>                

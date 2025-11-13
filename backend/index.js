@@ -93,9 +93,8 @@ app.get("/consultorios/:numero", (req, res)=>{
 app.get("/citas/:numero", (req, res)=>{    
     const { numero } = req.params;    
         
-        db.query('SELECT * FROM citas10 WHERE citaNumero = ?', [numero], (err, results) => {
-            if (err) {
-                console.error('Error en la Consulta:', err);
+        db.query('SELECT citaNumero, citaFecha, citaHora, citaPaciente, pacNombres, medNombres, conNombre, citaEstado, citaObservaciones FROM citas10 Inner Join pacientes on pacientes.pacIdentificacion=citas10.citaPaciente Inner Join medicos on medicos.medIdentificacion=citas10.citaMedico Inner Join consultorios on consultorios.conNumero=citas10.citaConsultorio WHERE citaNumero = ?', [numero], (err, results) => {
+            if (err) {                
                 return res.status(500).json({ error: 'Error en el Servidor' });
             }    
             if (results.length === 0) {
@@ -285,6 +284,24 @@ app.post("/citas", (req,res) =>{
         return res.json("Success");
     });
 });
+
+app.post("/tratamientos", (req,res) =>{
+    const result = "INSERT INTO tratamientos(traFechaAsignada,traDescripcion,traFechaInicio,traFechaFin,traObservaciones,traPaciente) VALUES(?)";
+    const values = [
+        req.body.traFechaAsignada,
+        req.body.traDescripcion,
+        req.body.traFechaInicio,
+        req.body.traFechaFin,        
+        req.body.traObservaciones,
+        req.body.traPaciente                      
+    ];
+
+    db.query(result, [values], (error) =>{
+        if(error) return res.json(error);
+        return res.json("Success");
+    });
+});
+
 
 app.listen(8800, () =>{
     console.log("Connected to Backend");

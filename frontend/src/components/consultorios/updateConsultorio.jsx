@@ -72,7 +72,7 @@ const ModificarConsultorios = () => {
                     <label>Nombre:</label>
                     <input type='text' name='conNombre' onChange={handleChange} value={consultorio.conNombre}></input>                    
                     <button className='btn btn-info' onClick={handleClick}>Actualizar</button> 
-                    <button className='btn btn-info'><Link to="/">Home</Link></button>                 
+                    <button className='btn btn-info'><Link to="/home">Home</Link></button>                 
                     </form>                  
                 </div>                
             )}            

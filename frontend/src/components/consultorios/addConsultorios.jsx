@@ -39,7 +39,7 @@ const AddConsultorios = () => {
            <h4 className='titulo'>Add new Office</h4>
            <input type="text" placeholder='Nombre Consultorio' onChange={handleChange} name='ConNombre'></input>
            <button className="btn btn-success" onClick={handleClick}>Add</button>           
-           <button className='btn btn-info'><Link to="/">Home</Link></button>
+           <button className='btn btn-info'><Link to="/home">Home</Link></button>
         </form>   
         </div>
     );

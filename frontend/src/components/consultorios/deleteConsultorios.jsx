@@ -70,7 +70,7 @@ const EliminarConsultorios = () => {
                     <label>Name:</label>
                     <input type='text' name='conNombre' value={consultorio.conNombre}></input>                      
                     <button className='btn btn-info' onClick={handleClick}>Delete</button> 
-                    <button className='btn btn-info'><Link to="/">Home</Link></button>                 
+                    <button className='btn btn-info'><Link to="/home">Home</Link></button>                 
                     </form>                  
                 </div>                
             )}            

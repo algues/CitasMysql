@@ -9,7 +9,7 @@ const Home = () => {
       </div>
       <Dropdown className="d-inline mx-2">
         <Dropdown.Toggle id="dropdown-autoclose-true">
-          PATIENTS
+          PACIENTES
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -22,7 +22,7 @@ const Home = () => {
 
       <Dropdown className="d-inline mx-2" autoClose="inside">
         <Dropdown.Toggle id="dropdown-autoclose-inside">
-          DOCTORS
+          MEDICOS
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -35,7 +35,7 @@ const Home = () => {
 
       <Dropdown className="d-inline mx-2" autoClose="outside">
         <Dropdown.Toggle id="dropdown-autoclose-outside">
-          OFFICES
+          CONSULTORIOS
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -48,7 +48,7 @@ const Home = () => {
 
       <Dropdown className="d-inline mx-2" autoClose={false}>
         <Dropdown.Toggle id="dropdown-autoclose-false">
-          QUOTES
+          CITAS
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -61,7 +61,7 @@ const Home = () => {
 
       <Dropdown className="d-inline mx-2" autoClose={false}>
         <Dropdown.Toggle id="dropdown-autoclose-false">
-          TREATMENTS
+          TRATAMIENTOS
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -74,7 +74,7 @@ const Home = () => {
 
      <Dropdown className="d-inline mx-2" autoClose={false}>
         <Dropdown.Toggle id="dropdown-autoclose-false">
-          REPORTS
+          REPORTES
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -92,7 +92,7 @@ const Home = () => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="/login">Exit</Dropdown.Item>          
+          <Dropdown.Item href="/">Exit</Dropdown.Item>          
         </Dropdown.Menu>
       </Dropdown>  
 

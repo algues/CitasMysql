@@ -26,6 +26,7 @@ import ReporteMedicos from './components/reportes/reporteMedicos';
 import ReporteConsultorio from './components/reportes/reporteConsultorios';
 import ReporteCitas from './components/reportes/reporteCitas';
 import ReporteTratamientos from './components/reportes/reporteTratamientos';
+import Login from './components/login';
 
 
 function App() {
@@ -34,7 +35,8 @@ function App() {
       <header className="">
        <Router>
         <Routes> 
-          <Route  exact path='/' element={<Home />}></Route>  
+          <Route  exact path='/' element={<Login />}></Route> 
+          <Route  path='/home' element={<Home />}></Route> 
           <Route  path='/addPacientes' element={<AddPacientes />}></Route> 
           <Route  path='/consultaPacientes' element={<ConsultaPacientes />}></Route>  
           <Route  path='/modificarPacientes' element={<ModificarPacientes />}></Route> 

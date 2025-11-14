@@ -321,8 +321,8 @@ app.delete("/tratamientos/:numero", (req,res) =>{
 
 
 app.post("/login", (req,res)=>{
-    const result = "SELECT * FROM usuarios WHERE user = ? AND password = ?";    
-    db.query(result, [req.body.user, req.body.password], (error, data)=>{
+    const result = "SELECT * FROM usuarios WHERE username = ? AND password = ?";    
+    db.query(result, [req.body.username, req.body.password], (error, data)=>{
         if(error) return res.json("error");
         if(data.length > 0) {
            return res.json("Success")

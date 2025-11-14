@@ -51,7 +51,7 @@ const AddCitas = () => {
            <input type="text" placeholder='Estado Cita' onChange={handleChange} name='citaEstado'></input>
            <textarea type="text" placeholder='Observaciones' onChange={handleChange} name='citaObservaciones' row='3'></textarea>
            <button className="btn btn-success" onClick={handleClick}>Add</button>           
-           <button className='btn btn-info'><Link to="/">Home</Link></button>
+           <button className='btn btn-info'><Link to="/home">Home</Link></button>
         </form>   
         </div>
     );

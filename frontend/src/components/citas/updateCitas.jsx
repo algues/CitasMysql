@@ -91,7 +91,7 @@ const ModificarCitas = () => {
                         <label>Observaciones</label>
                         <textarea type="text" onChange={handleChange} name='citaObservaciones' value={cita.citaObservaciones} rows={3}></textarea>
                         <button className='btn btn-info' onClick={handleClick}>Update</button>
-                        <button className='btn btn-info'><Link to="/">Home</Link></button>
+                        <button className='btn btn-info'><Link to="/home">Home</Link></button>
                     </form>
                 </div>
             )}

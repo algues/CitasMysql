@@ -65,10 +65,10 @@ const Home = () => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#">Register</Dropdown.Item>
-          <Dropdown.Item href="#">Consult</Dropdown.Item>
-          <Dropdown.Item href="#">Update</Dropdown.Item>
-          <Dropdown.Item href="#">Delete</Dropdown.Item>
+          <Dropdown.Item href="/addTratamientos">Register</Dropdown.Item>
+          <Dropdown.Item href="/consultarTratamientos">Consult</Dropdown.Item>
+          <Dropdown.Item href="/modificarTratamientos">Update</Dropdown.Item>
+          <Dropdown.Item href="/eliminarTratamientos">Delete</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown> 
 
@@ -78,11 +78,11 @@ const Home = () => {
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
-          <Dropdown.Item href="#">Patients</Dropdown.Item>
-          <Dropdown.Item href="#">Doctors</Dropdown.Item>
-          <Dropdown.Item href="#">Officess</Dropdown.Item>
-          <Dropdown.Item href="#">Quotes</Dropdown.Item>
-          <Dropdown.Item href="#">Treatment</Dropdown.Item>          
+          <Dropdown.Item href="/reportePacientes">Patients</Dropdown.Item>
+          <Dropdown.Item href="/reporteMedicos">Doctors</Dropdown.Item>
+          <Dropdown.Item href="/reporteConsultorios">Officess</Dropdown.Item>
+          <Dropdown.Item href="/reporteCitas">Quotes</Dropdown.Item>
+          <Dropdown.Item href="/reporteTratamientos">Treatment</Dropdown.Item>          
         </Dropdown.Menu>
       </Dropdown> 
 

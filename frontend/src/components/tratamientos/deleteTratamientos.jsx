@@ -85,7 +85,7 @@ const EliminarTratamientos = () => {
                         <br />
                         <br />
                         <button className='btn btn-info' onClick={handleClick}>Delete</button>
-                        <button className='btn btn-info'><Link to="/">Home</Link></button>
+                        <button className='btn btn-info'><Link to="/home">Home</Link></button>
                     </form>
                 </div>
             )}

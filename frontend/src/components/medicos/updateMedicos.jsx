@@ -83,7 +83,7 @@ const ModificarMedicos = () => {
                     <label>Especialidad:</label>
                     <input type='text' name='medEspecialidad' onChange={handleChange} value={medico.medEspecialidad}></input>   
                     <button className='btn btn-info' onClick={handleClick}>Actualizar</button> 
-                    <button className='btn btn-info'><Link to="/">Home</Link></button>                 
+                    <button className='btn btn-info'><Link to="/home">Home</Link></button>                 
                     </form>                  
                 </div>                
             )}            

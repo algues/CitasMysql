@@ -52,7 +52,7 @@ const ConsultarMedicos = () => {
                 </div>                
             )}
             <div>
-               <button className='btn btn-info'><Link to="/">Home</Link></button> 
+               <button className='btn btn-info'><Link to="/home">Home</Link></button> 
             </div>
         </div>
     );

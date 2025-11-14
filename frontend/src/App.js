@@ -17,6 +17,15 @@ import AddCitas from './components/citas/addCitas';
 import ConsultarCitas from './components/citas/consultCitas';
 import ModificarCitas from './components/citas/updateCitas';
 import EliminarCitas from './components/citas/deleteCitas';
+import AddTratamientos from './components/tratamientos/addTratamientos';
+import ConsultarTratamientos from './components/tratamientos/consultTratamientos';
+import ModificarTratamientos from './components/tratamientos/updateTratamientos';
+import EliminarTratamientos from './components/tratamientos/deleteTratamientos';
+import ListPatients from './components/reportes/reportePacientes';
+import ReporteMedicos from './components/reportes/reporteMedicos';
+import ReporteConsultorio from './components/reportes/reporteConsultorios';
+import ReporteCitas from './components/reportes/reporteCitas';
+import ReporteTratamientos from './components/reportes/reporteTratamientos';
 
 
 function App() {
@@ -41,7 +50,16 @@ function App() {
           <Route  path='/addCitas' element={<AddCitas />}></Route> 
           <Route  path='/consultarCitas' element={<ConsultarCitas />}></Route>   
           <Route  path='/modificarCitas' element={<ModificarCitas />}></Route>
-          <Route  path='/eliminarCitas' element={<EliminarCitas />}></Route>   
+          <Route  path='/eliminarCitas' element={<EliminarCitas />}></Route>  
+          <Route  path='/addTratamientos' element={<AddTratamientos />}></Route>  
+          <Route  path='/consultarTratamientos' element={<ConsultarTratamientos />}></Route> 
+          <Route  path='/modificarTratamientos' element={<ModificarTratamientos />}></Route>  
+          <Route  path='/eliminarTratamientos' element={<EliminarTratamientos />}></Route> 
+          <Route  path='/reportePacientes' element={<ListPatients />}></Route>  
+          <Route  path='/reporteMedicos' element={<ReporteMedicos />}></Route> 
+          <Route  path='/reporteConsultorios' element={<ReporteConsultorio />}></Route>   
+          <Route  path='/reporteCitas' element={<ReporteCitas />}></Route> 
+          <Route  path='/reporteTratamientos' element={<ReporteTratamientos />}></Route>    
         </Routes>
       </Router>     
       </header>

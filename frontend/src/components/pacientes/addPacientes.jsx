@@ -56,7 +56,7 @@ const AddPacientes = () => {
              <label>Sexo:</label>
              <input type="text" onChange={handleChange} name='pacSexo'></input>
              <button className='btn btn-success' onClick={handleClick}>Add</button>           
-             <button className='btn btn-info'><Link to="/">Home</Link></button> 
+             <button className='btn btn-info'><Link to="/home">Home</Link></button> 
            </form>          
         </div>
     );

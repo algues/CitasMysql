@@ -82,7 +82,7 @@ const EliminarPacientes = () => {
                     <label>Sexo:</label>
                     <input type='text' name='pacSexo' value={paciente.pacSexo}></input>   
                     <button className='btn btn-info' onClick={handleClick}>Eliminar</button> 
-                    <button className='btn btn-info'><Link to="/">Home</Link></button>                 
+                    <button className='btn btn-info'><Link to="/home">Home</Link></button>                 
                     </form>                  
                 </div>                
             )}            

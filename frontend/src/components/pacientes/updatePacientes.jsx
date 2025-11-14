@@ -86,7 +86,7 @@ const ModificarPacientes = () => {
                     <label>Sexo:</label>
                     <input type='text' name='pacSexo' onChange={handleChange} value={paciente.pacSexo}></input>   
                     <button className='btn btn-info' onClick={handleClick}>Actualizar</button> 
-                    <button className='btn btn-info'><Link to="/">Home</Link></button>                 
+                    <button className='btn btn-info'><Link to="/home">Home</Link></button>                 
                     </form>                  
                 </div>                
             )}            

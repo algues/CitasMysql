@@ -28,7 +28,39 @@ app.get("/pacientes", async(req, res) =>{
     const result = "SELECT * FROM pacientes";
     db.query(result, (error, data) =>{
         if(error) return res.json(err)
-        return res,json(data) 
+        return res.json(data) 
+    })
+});
+
+app.get("/medicos", async(req, res) =>{
+    const result = "SELECT * FROM medicos";
+    db.query(result, (error, data) =>{
+        if(error) return res.json(err)
+        return res.json(data) 
+    })
+});
+
+app.get("/consultorios", async(req, res) =>{
+    const result = "SELECT * FROM consultorios";
+    db.query(result, (error, data) =>{
+        if(error) return res.json(err)
+        return res.json(data) 
+    })
+});
+
+app.get("/citas1", (req,res)=>{
+    const result = "SELECT citaNumero, citaFecha, citaHora, pacNombres, medNombres, conNombre, citaEstado, citaObservaciones FROM citas10 Inner Join pacientes on pacientes.pacIdentificacion=citas10.citaPaciente Inner Join medicos on medicos.medIdentificacion=citas10.citaMedico Inner Join consultorios on consultorios.conNumero=citas10.citaConsultorio";
+    db.query(result, (error, data)=>{
+        if(error) return res.json(error)
+        return res.json(data)
+    })
+});
+
+app.get("/tratamientos1", (req,res)=>{
+    const result = "SELECT traNumero, traFechaAsignada, traDescripcion, traFechaInicio, traFechaFin, traObservaciones, pacNombres FROM tratamientos Inner Join Pacientes on pacientes.pacIdentificacion=tratamientos.traPaciente";
+    db.query(result, (error, data)=>{
+        if(error) return res.json(error)
+        return res.json(data)
     })
 });
 
@@ -105,6 +137,21 @@ app.get("/citas/:numero", (req, res)=>{
     
 });
 
+app.get("/tratamientos/:numero", (req, res)=>{    
+    const { numero } = req.params;    
+        
+        db.query('SELECT traNumero, traFechaAsignada, traDescripcion, traFechaInicio, traFechaFin, traObservaciones, traPaciente, pacNombres FROM tratamientos Inner Join pacientes on pacientes.pacIdentificacion=tratamientos.traPaciente WHERE traNumero = ?', [numero], (err, results) => {
+            if (err) {                
+                return res.status(500).json({ error: 'Error en el Servidor' });
+            }    
+            if (results.length === 0) {
+                return res.status(404).json({ error: 'Tratamiento no registrado' });
+            }    
+            res.json(results[0]); 
+        });
+    
+});
+
 app.put("/pacientes/:pacIdentificacion", (req, res) =>{
     const pacienteId = req.params.pacIdentificacion;
     const result = "UPDATE pacientes SET pacIdentificacion = ?, pacApellidos = ?, pacNombres = ?, pacFechaNacimiento = ?, pacTelefono = ?, PacSexo = ? WHERE pacIdentificacion = ?";
@@ -171,6 +218,25 @@ app.put("/citas/:numero", (req,res) =>{
         return res.json("Success");
     });
 });
+
+app.put("/tratamientos/:numero", (req,res) =>{
+    const tratamientoId = req.params.numero;
+    const result = "UPDATE tratamientos SET traFechaAsignada = ?, traDescripcion = ?,traFechaInicio = ?, traFechaFin = ?, traObservaciones = ?, traPaciente = ? WHERE traNumero = ?";
+    const values = [
+        req.body.traFechaAsignada,
+        req.body.traDescripcion,
+        req.body.traFechaInicio,
+        req.body.traFechaFin,
+        req.body.traObservaciones,
+        req.body.traPaciente                       
+    ];
+
+    db.query(result, [...values, tratamientoId], (err,data)=>{
+        if(err) return res.json(err);
+        return res.json("Success");
+    });
+});
+
 
 app.post("/pacientes", async(req, res)=>{
     const result = "INSERT INTO pacientes(pacIdentificacion, pacApellidos, pacNombres, pacFechaNacimiento, pacTelefono, pacSexo) VALUES(?)";
@@ -241,6 +307,17 @@ app.delete("/citas/:numero", (req,res) =>{
         return res.json("Success");
     });
 });
+
+app.delete("/tratamientos/:numero", (req,res) =>{
+    const tratamientoId = req.params.numero;
+    const result = "DELETE FROM tratamientos WHERE traNumero = ?";
+
+    db.query(result, [tratamientoId], (err, data)=>{
+        if(err) return res.json(err);
+        return res.json("Success");
+    });
+});
+
 
 
 app.post("/login", (req,res)=>{
